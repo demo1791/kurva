@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KURVA — 个人作品集</title>
+  <meta name="description" content="Kurva 的个人世界。一颗地球仪，五个板块：学习、成绩、成果、能力、爱好。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%2314100c'/%3E%3Ccircle cx='16' cy='16' r='14' fill='none' stroke='%23e9a54b' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='3' fill='%23e9a54b'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,700;9..144,900&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="backdrop" id="backdropA" aria-hidden="true"></div>
+  <div class="backdrop" id="backdropB" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="wordmark">
+    <h1 class="wordmark__name">KURVA</h1>
+    <p class="wordmark__tag">人生是条曲线</p>
+  </header>
+
+  <main class="stage">
+    <canvas id="globe" aria-hidden="true"></canvas>
+
+    <section class="panel" id="panel" aria-live="polite">
+      <div class="panel__coord" id="panelCoord">— · —</div>
+      <div class="panel__head">
+        <span class="panel__icon" id="panelIcon"></span>
+        <span class="panel__en" id="panelEn"></span>
+      </div>
+      <h2 class="panel__name" id="panelName"></h2>
+      <p class="panel__intro" id="panelIntro"></p>
+      <ul class="panel__body" id="panelBody"></ul>
+
+      <div class="pomodoro" id="pomodoro" hidden>
+        <div class="pomodoro__ring">
+          <svg viewBox="0 0 120 120" aria-hidden="true">
+            <circle class="pomodoro__track" cx="60" cy="60" r="52"></circle>
+            <circle class="pomodoro__progress" id="pomoProgress" cx="60" cy="60" r="52"></circle>
+          </svg>
+          <div class="pomodoro__time" id="pomoTime">25:00</div>
+        </div>
+        <div class="pomodoro__mode" id="pomoMode">专注</div>
+        <div class="pomodoro__controls">
+          <button type="button" id="pomoToggle">开始</button>
+          <button type="button" id="pomoReset">重置</button>
+        </div>
+      </div>
+    </section>
+
+    <nav class="legend" id="legend" aria-label="内容板块"></nav>
+  </main>
+
+  <footer class="foot">
+    <span class="foot__hint">拖拽旋转 · 点击区域切换</span>
+    <span class="foot__readout" id="readout">SELECT A REGION</span>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
